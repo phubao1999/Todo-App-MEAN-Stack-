@@ -4,6 +4,7 @@ const mongo = require('mongoose');
 require('dotenv/config');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const listRouter = require('./routes/list');
 
 // Connect MongoDb
 mongo.connect(process.env.DB_CONNECTION, {
@@ -20,7 +21,8 @@ if (!db) {
 // MiddleWare
 
 app.use(cors());
-app.use(bodyParser);
+app.use(bodyParser.json());
+app.use('/list', listRouter);
 
 // Routes
 app.get('/', (req, res) => {

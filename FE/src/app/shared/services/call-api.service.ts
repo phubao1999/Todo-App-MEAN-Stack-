@@ -13,4 +13,8 @@ export class CallApiService {
   getData() {
     return this.http.get(this.configUrl);
   }
+
+  postData(body) {
+    return this.http.post(this.configUrl, body);
+  }
 }

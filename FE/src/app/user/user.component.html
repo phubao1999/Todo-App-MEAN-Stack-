@@ -35,9 +35,8 @@
       <p>{{ item.title }}</p>
       <small class="text-center">{{ item.description }}</small>
       <div class="icon">
-        <div class="info"><i class="fas fa-check p-3" (click)="doneItem(item._id)"></i>Done</div>
-        <div class="info"><i class="fas fa-edit p-3" (click)="editItem(item._id)"></i>Edit</div>
-        <div class="info"><i class="fas fa-trash-alt p-3" (click)="deleteItem(item._id)"></i>Delete</div>
+        <div class="info" (click)="editItem(item._id)"><i class="fas fa-edit p-3"></i>Edit</div>
+        <div class="info" (click)="deleteItem(item._id)"><i class="fas fa-trash-alt p-3"></i>Delete</div>
       </div>
     </div>
   </div>

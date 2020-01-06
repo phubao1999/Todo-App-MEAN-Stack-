@@ -10,26 +10,26 @@
   }
   form {
     .one-field {
-        margin: 30px 80px;
-        label {
-            color: #ecf0f1;
-        }
-        .err {
-            color: red;
-            padding-top: 15px;
-        }
+      margin: 30px 80px;
+      label {
+        color: #ecf0f1;
+      }
+      .err {
+        color: red;
+        padding-top: 15px;
+      }
     }
     .to-flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        button {
-            width: 50%;
-            font-weight: 700;
-            &:disabled {
-                cursor: not-allowed;
-            }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        width: 50%;
+        font-weight: 700;
+        &:disabled {
+          cursor: not-allowed;
         }
+      }
     }
   }
   .todo-list {
@@ -54,6 +54,15 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        .info {
+          transition: all 0.3s ease;
+          &:hover {
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 30px;
+            background-color: #bdc3c7;
+          }
+        }
       }
     }
   }

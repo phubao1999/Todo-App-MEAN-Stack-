@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ValidateService } from './../shared/services/helpers/validate.service';
 import { CallApiService } from './../shared/services/call-api.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,7 +23,8 @@ export class UserComponent implements OnInit {
   constructor(
     private callApi: CallApiService,
     private formBuilder: FormBuilder,
-    private validateService: ValidateService
+    private validateService: ValidateService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -75,7 +77,7 @@ export class UserComponent implements OnInit {
   }
 
   editItem(id) {
-    console.log(id);
+    this.router.navigate([`item/${id}`]);
   }
 
 }

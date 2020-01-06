@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 // Delete Item
 router.delete('/:itemId', async (req, res) => {
     try {
-        const id = await List.remove({ _id: req.params.itemId });
+        const id = await List.deleteOne({ _id: req.params.itemId });
         res.json(id);
     } catch (err) {
         res.json({
@@ -56,6 +56,18 @@ router.put('/:itemId', async (req, res) => {
             { useFindAndModify: false }
         );
         res.json(updated);
+    } catch (err) {
+        res.json({
+            message: err
+        });
+    }
+});
+
+// Get Detail Item
+router.get('/:itemId', async (req, res) => {
+    try {
+        const itemDetail = await List.findById(req.params.itemId);
+        res.json(itemDetail);
     } catch (err) {
         res.json({
             message: err

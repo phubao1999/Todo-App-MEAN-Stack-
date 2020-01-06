@@ -8,6 +8,10 @@ const ListSchema = mongoose.Schema({
     isDone: {
         type: Boolean,
         require: true
+    },
+    description: {
+        type: String,
+        require: false
     }
 });
 

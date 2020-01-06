@@ -8,21 +8,48 @@
     padding: 70px 0px;
     color: #ecf0f1;
   }
-  .item {
-    margin: 15px;
-    color: #ecf0f1;
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 10px;
-    p {
-      text-align: center;
+  form {
+    .one-field {
+        margin: 30px 80px;
+        label {
+            color: #ecf0f1;
+        }
+        .err {
+            color: red;
+            padding-top: 15px;
+        }
     }
-    .icon {
-      font-size: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+    .to-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+            width: 50%;
+            font-weight: 700;
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
+  }
+  .todo-list {
+    padding-bottom: 10px;
+    .item {
+      margin: 15px;
+      color: #ecf0f1;
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 10px;
+      p {
+        text-align: center;
+      }
+      .icon {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
     }
   }
 }

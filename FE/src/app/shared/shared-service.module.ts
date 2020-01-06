@@ -1,3 +1,4 @@
+import { CallApiService } from './services/call-api.service';
 import { PagerService } from './services/helpers/pager.service';
 import { TimeService } from './services/helpers/time.service';
 import { ValidateService } from './services/helpers/validate.service';
@@ -9,7 +10,8 @@ import { BaseService } from './services/helpers/base.service';
         BaseService,
         ValidateService,
         TimeService,
-        PagerService
+        PagerService,
+        CallApiService
     ]
 })
 export class SharedServicesModule {

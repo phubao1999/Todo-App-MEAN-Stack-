@@ -17,4 +17,8 @@ export class CallApiService {
   postData(body) {
     return this.http.post(this.configUrl, body);
   }
+
+  deleteData(id) {
+    return this.http.delete(`${this.configUrl}/${id}`);
+  }
 }

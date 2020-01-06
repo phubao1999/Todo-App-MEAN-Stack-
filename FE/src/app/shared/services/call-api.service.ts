@@ -25,4 +25,8 @@ export class CallApiService {
   getDetail(id) {
     return this.http.get(`${this.configUrl}/${id}`);
   }
+
+  editData(id, body) {
+    return this.http.put(`${this.configUrl}/${id}`, body);
+  }
 }

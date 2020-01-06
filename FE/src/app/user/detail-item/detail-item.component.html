@@ -1,25 +1,13 @@
 <div class="layout">
   <h1>Details Item</h1>
-  <form>
-    <div class="switch">
-      <label for="">Is Done ?</label>
-      <div class="toggle-button-cover">
-        <div class="button-cover">
-          <div class="button r" id="button-1">
-            <input type="checkbox" class="checkbox" />
-            <div class="knobs"></div>
-            <div class="layer"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <form [formGroup]="formDetails">
     <div class="one-field">
       <label for="title">Your Todo</label>
       <input
         type="text"
         class="form-control"
         id="title"
-        placeholder="Enter your todo"
+        formControlName="title"
       />
     </div>
     <div class="one-field">
@@ -28,14 +16,19 @@
         type="text"
         class="form-control"
         id="description"
-        placeholder="Enter your description"
+        formControlName="description"
       />
     </div>
     <div class="one-button">
       <button class="btn btn-dark text-center" (click)="back()">Back</button>
     </div>
     <div class="one-button">
-      <button class="btn btn-light">Update</button>
+      <button
+        class="btn btn-light"
+        (click)="update()"
+      >
+        Update
+      </button>
     </div>
   </form>
 </div>

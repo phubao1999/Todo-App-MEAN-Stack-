@@ -43,6 +43,11 @@
       p {
         text-align: center;
       }
+      small {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       .icon {
         font-size: 25px;
         display: flex;

@@ -74,4 +74,8 @@ export class UserComponent implements OnInit {
     });
   }
 
+  editItem(id) {
+    console.log(id);
+  }
+
 }

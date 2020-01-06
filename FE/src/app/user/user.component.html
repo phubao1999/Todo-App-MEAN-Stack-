@@ -33,10 +33,11 @@
     <p class="pl-3 text-white">List Thing To Do</p>
     <div class="item" *ngFor="let item of data">
       <p>{{ item.title }}</p>
+      <small class="text-center">{{ item.description }}</small>
       <div class="icon">
-        <i class="fas fa-check p-3" (click)="doneItem(item._id)"></i>
-        <i class="fas fa-edit p-3" (click)="editItem(item._id)"></i>
-        <i class="fas fa-trash-alt p-3" (click)="deleteItem(item._id)"></i>
+        <div class="info"><i class="fas fa-check p-3" (click)="doneItem(item._id)"></i>Done</div>
+        <div class="info"><i class="fas fa-edit p-3" (click)="editItem(item._id)"></i>Edit</div>
+        <div class="info"><i class="fas fa-trash-alt p-3" (click)="deleteItem(item._id)"></i>Delete</div>
       </div>
     </div>
   </div>

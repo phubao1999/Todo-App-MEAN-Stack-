@@ -1,3 +1,4 @@
+import { DetailItemComponent } from './detail-item/detail-item.component';
 import { UserLayoutComponent } from './../shared/layout/user-layout/user-layout.component';
 import { UserComponent } from './user.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
@@ -6,7 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: '', component: UserComponent
+        path: '', component: UserComponent,
+    },
+    {
+        path: 'item/:id', component: DetailItemComponent
     }
 ];
 

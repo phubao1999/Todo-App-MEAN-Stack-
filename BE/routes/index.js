@@ -1,8 +1,21 @@
-const express = require('express');
-const router = express.Router();
+const list = require('./list');
+const authentication = require('./users');
 
-router.get('/', (req, res) => {
-    res.send('Welcome To Home Page');
-});
+// router.get('/', (req, res) => {
+//     res.send('Welcome To Home Page');
+// });
 
-module.exports = router;
+class RouterIndex {
+    constructor(app) {
+        this.app = app;
+    }
+
+    registerRoutes() {
+        this.app.use('/list', list);
+        this.app.use('/users', authentication);
+    }
+}
+
+module.exports = app => {
+    return new RouterIndex(app)
+};

@@ -4,9 +4,6 @@ const mongo = require('mongoose');
 require('dotenv/config');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const listRouter = require('./routes/list');
-const index = require('./routes/index');
-const users = require('./routes/users');
 const port = process.env.PORT || 3000;
 
 // Connect MongoDb
@@ -21,18 +18,18 @@ if (!db) {
     console.log("MongoDb Is Connecting");
 }
 
+app.get('/', (req, res) => {
+    res.send('Welcome To My Web Server');
+});
+
 // MiddleWare
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/list', listRouter);
-app.use('/users', users);
-app.use('/', index);
 
-// Routes
-// app.get('/', (req, res) => {
-//     res.send('We Are In Home');
-// });
+// Set Routes API
+const routerIndex = require('./routes')(app);
+routerIndex.registerRoutes();
 
 app.listen(port, () => {
     console.log(`Server Is Listening On port ${port}`);

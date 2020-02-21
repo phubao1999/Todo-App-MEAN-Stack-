@@ -5,6 +5,9 @@ require('dotenv/config');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const listRouter = require('./routes/list');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const port = process.env.PORT || 3000;
 
 // Connect MongoDb
 mongo.connect(process.env.DB_CONNECTION, {
@@ -23,12 +26,14 @@ if (!db) {
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/list', listRouter);
+app.use('/users', users);
+app.use('/', index);
 
 // Routes
-app.get('/', (req, res) => {
-    res.send('We Are In Home');
-});
+// app.get('/', (req, res) => {
+//     res.send('We Are In Home');
+// });
 
-app.listen(3000, () => {
-    console.log('Server Is Listening On http://localhost:3000/');
+app.listen(port, () => {
+    console.log(`Server Is Listening On port ${port}`);
 });

@@ -1,3 +1,4 @@
+import { MainLayoutComponent } from './../shared/layout/main-layout/main-layout.component';
 import { HomeComponent } from './home/home.component';
 import { DetailItemComponent } from './todo-list/detail-item/detail-item.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
@@ -14,10 +15,15 @@ export const routes: Routes = [
         path: 'auth', component: AuthenticationComponent
     },
     {
-        path: 'todo-list', component: TodoListComponent,
-    },
-    {
-        path: 'todo-list/item/:id', component: DetailItemComponent
+        path: 'todo-list', component: MainLayoutComponent,
+        children: [
+            {
+                path: '', component: TodoListComponent
+            },
+            {
+                path: 'item/:id', component: DetailItemComponent
+            }
+        ]
     }
 ];
 

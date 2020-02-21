@@ -80,4 +80,8 @@ export class TodoListComponent implements OnInit {
     this.router.navigate([`todo-list/item/${id}`]);
   }
 
+  back() {
+    this.router.navigate(['']);
+  }
+
 }

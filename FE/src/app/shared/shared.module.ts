@@ -1,3 +1,5 @@
+import { LoginStatusComponent } from './components/login-status/login-status.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { NavComponent } from './core/nav/nav.component';
 import { EditorComponent } from './components/editor/editor.component';
@@ -21,6 +23,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
+    MainLayoutComponent,
     UserLayoutComponent,
     AdminLayoutComponent,
     DataTableComponent,
@@ -28,7 +31,8 @@ export function createTranslateLoader(http: HttpClient) {
     SelectDropdownComponent,
     EditorComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    LoginStatusComponent
   ],
   imports: [
     HttpClientModule,
@@ -45,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
     EditorModule
   ],
   exports: [
+    MainLayoutComponent,
     UserLayoutComponent,
     AdminLayoutComponent,
     DataTableComponent,
@@ -53,6 +58,7 @@ export function createTranslateLoader(http: HttpClient) {
     EditorComponent,
     NavComponent,
     FooterComponent,
+    LoginStatusComponent,
     HttpModule,
     ReactiveFormsModule
   ],

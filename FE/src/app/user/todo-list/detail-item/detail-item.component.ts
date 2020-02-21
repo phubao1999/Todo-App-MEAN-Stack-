@@ -1,5 +1,5 @@
-import { ValidateService } from './../../shared/services/helpers/validate.service';
-import { CallApiService } from './../../shared/services/call-api.service';
+import { ValidateService } from '../../../shared/services/helpers/validate.service';
+import { CallApiService } from '../../../shared/services/call-api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';

@@ -59,7 +59,7 @@ export class DetailItemComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['']);
+    this.router.navigate(['todo-list/']);
   }
 
   update() {

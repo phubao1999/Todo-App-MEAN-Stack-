@@ -7,10 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: '', component: UserComponent,
+        path: 'todo-list', component: UserComponent,
     },
     {
-        path: 'item/:id', component: DetailItemComponent
+        path: 'todo-list/item/:id', component: DetailItemComponent
     }
 ];
 

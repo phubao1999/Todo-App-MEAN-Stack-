@@ -77,7 +77,7 @@ export class UserComponent implements OnInit {
   }
 
   editItem(id) {
-    this.router.navigate([`item/${id}`]);
+    this.router.navigate([`todo-list/item/${id}`]);
   }
 
 }

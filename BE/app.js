@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Set Routes API
 const routerIndex = require('./routes')(app);

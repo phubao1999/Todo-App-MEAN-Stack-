@@ -1,17 +1,20 @@
-import { AuthenticationComponent } from './../authentication/authentication.component';
-import { DetailItemComponent } from './detail-item/detail-item.component';
-import { UserLayoutComponent } from '../../shared/layout/user-layout/user-layout.component';
-import { UserComponent } from './user.component';
+import { HomeComponent } from './home/home.component';
+import { DetailItemComponent } from './todo-list/detail-item/detail-item.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 export const routes: Routes = [
+    {
+        path: '', component: HomeComponent
+    },
     {
         path: 'auth', component: AuthenticationComponent
     },
     {
-        path: 'todo-list', component: UserComponent,
+        path: 'todo-list', component: TodoListComponent,
     },
     {
         path: 'todo-list/item/:id', component: DetailItemComponent

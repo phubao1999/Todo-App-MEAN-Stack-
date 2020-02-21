@@ -6,10 +6,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.scss']
 })
-export class UserComponent implements OnInit {
+export class TodoListComponent implements OnInit {
   data;
   formPost: FormGroup;
   formErrors = {

@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
-
+  isRegister = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toRegister() {
+    this.isRegister = true;
+  }
+
+  toLogin() {
+    this.isRegister = false;
   }
 
 }

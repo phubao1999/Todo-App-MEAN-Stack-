@@ -3,6 +3,7 @@ import { ValidateService } from './../../shared/services/helpers/validate.servic
 import { CallApiService } from './../../shared/services/call-api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, DoCheck } from '@angular/core';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-authentication',
@@ -115,6 +116,24 @@ export class AuthenticationComponent implements OnInit, DoCheck {
     } else {
       this.createUser();
     }
+  }
+
+  login() {
+    const length = this.formLogin.value.password.length;
+    if (length < 4 || length > 12) {
+      this.errPassword = true;
+      this.errMessage = 'Password Must Have More Than 4 Character And Not Over 12 Character';
+    } else {
+      this.loginUser();
+    }
+  }
+
+  loginUser() {
+    const body = {
+      email: this.formLogin.value.email,
+      password: this.formLogin.value.password
+    };
+    console.log(body);
   }
 
   createUser() {

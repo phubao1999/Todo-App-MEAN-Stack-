@@ -39,6 +39,7 @@
                 <!-- bottom -->
                 <div class="bottom-card">
                     <button class="text-uppercase" [disabled]="formLogin.invalid" (click)="login()">Login</button>
+                    <span *ngIf="errPassword" class="error">{{ errMessage }}</span>
                 </div>
             </form>
         </div>

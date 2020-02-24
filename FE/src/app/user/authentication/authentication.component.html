@@ -13,83 +13,88 @@
         <!-- mid -->
         <!-- Login Form -->
         <div class="mid-card" *ngIf="!isRegister">
-            <div class="form-gr email">
-                <label class="grey">Email</label>
-                <div class="form-input">
-                    <div class="icon">
-                        <i class="far fa-envelope"></i>
+            <form [formGroup]="formLogin">
+                <div class="form-gr email">
+                    <label class="grey">Email</label>
+                    <div class="form-input">
+                        <div class="icon">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <input type="text" placeholder="Your Email" formControlName="email">
                     </div>
-                    <input type="email" placeholder="Your Email">
+                    <span class='error'
+                        *ngIf="formLoginErrors.email && formLogin.controls.email.touched">*{{formLoginErrors.email}}</span>
                 </div>
-                <!-- <span class='error'
-                        *ngIf="formErrors.email && formLogin.controls.email.touched">*{{formErrors.email | translate}}</span> -->
-            </div>
-            <div class="form-gr password">
-                <label class="grey">Password</label>
-                <div class="form-input">
-                    <div class="icon">
-                        <i class="fas fa-lock"></i>
+                <div class="form-gr password">
+                    <label class="grey">Password</label>
+                    <div class="form-input">
+                        <div class="icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <input type="password" placeholder="Password" formControlName="password">
                     </div>
-                    <input type="password" placeholder="Password">
+                    <span class='error'
+                        *ngIf="formLoginErrors.password && formLogin.controls.password.touched">*{{formLoginErrors.password}}</span>
                 </div>
-                <!-- <span class='error'
-                        *ngIf="formErrors.password && formLogin.controls.password.touched">*{{formErrors.password | translate}}</span> -->
-            </div>
-            <!-- bottom -->
-            <div class="bottom-card">
-                <button class="text-uppercase" (click)="login()">Login</button>
-            </div>
+                <!-- bottom -->
+                <div class="bottom-card">
+                    <button class="text-uppercase" [disabled]="formLogin.invalid" (click)="login()">Login</button>
+                </div>
+            </form>
         </div>
         <!-- Register Form -->
         <div class="mid-card" *ngIf="isRegister">
-            <div class="form-gr email">
-                <label class="grey">Email</label>
-                <div class="form-input">
-                    <div class="icon">
-                        <i class="far fa-envelope"></i>
+            <form [formGroup]="formRegister">
+                <div class="form-gr email">
+                    <label class="grey">Email</label>
+                    <div class="form-input">
+                        <div class="icon">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <input type="email" placeholder="Your email" formControlName="email">
                     </div>
-                    <input type="email" placeholder="Your email">
+                    <span class='error'
+                            *ngIf="formRegisterErrors.email && formRegister.controls.email.touched">*{{formRegisterErrors.email}}</span>
                 </div>
-                <!-- <span class='error'
-                        *ngIf="formErrors.email && formLogin.controls.email.touched">*{{formErrors.email | translate}}</span> -->
-            </div>
-            <div class="form-gr name">
-                <label class="grey">Name</label>
-                <div class="form-input">
-                    <div class="icon">
-                        <i class="fas fa-user"></i>
+                <div class="form-gr name">
+                    <label class="grey">Name</label>
+                    <div class="form-input">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <input type="text" placeholder="Your name" formControlName="name">
                     </div>
-                    <input type="text" placeholder="Your name">
+                    <span class='error'
+                            *ngIf="formRegisterErrors.email && formRegister.controls.email.touched">*{{formRegisterErrors.email}}</span>
                 </div>
-                <!-- <span class='error'
-                        *ngIf="formErrors.email && formLogin.controls.email.touched">*{{formErrors.email | translate}}</span> -->
-            </div>
-            <div class="form-gr password">
-                <label class="grey">Password</label>
-                <div class="form-input">
-                    <div class="icon">
-                        <i class="fas fa-lock"></i>
+                <div class="form-gr password">
+                    <label class="grey">Password</label>
+                    <div class="form-input">
+                        <div class="icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <input type="password" placeholder="Password" formControlName="password">
                     </div>
-                    <input type="password" placeholder="Password">
+                    <span class='error'
+                            *ngIf="formRegisterErrors.password && formRegister.controls.password.touched">*{{formRegisterErrors.password}}</span>
                 </div>
-                <!-- <span class='error'
-                        *ngIf="formErrors.password && formLogin.controls.password.touched">*{{formErrors.password | translate}}</span> -->
-            </div>
-            <div class="form-gr password">
-                <label class="grey">Re-enter Password</label>
-                <div class="form-input">
-                    <div class="icon">
-                        <i class="fas fa-lock"></i>
+                <div class="form-gr password">
+                    <label class="grey">Re-enter Password</label>
+                    <div class="form-input">
+                        <div class="icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <input type="password" placeholder="Re Enter Password" id="confirm" (keyup)="onKey($event)">
                     </div>
-                    <input type="password" placeholder="Re Enter Password">
+                    <!-- <span class='error'
+                            *ngIf="formErrors.password && formLogin.controls.password.touched">*{{formErrors.password | translate}}</span> -->
                 </div>
-                <!-- <span class='error'
-                        *ngIf="formErrors.password && formLogin.controls.password.touched">*{{formErrors.password | translate}}</span> -->
-            </div>
-            <!-- bottom -->
-            <div class="bottom-card">
-                <button class="text-uppercase" (click)="login()">Register</button>
-            </div>
+                <!-- bottom -->
+                <div class="bottom-card">
+                    <button class="text-uppercase"[disabled]="formRegister.invalid" (click)="register()">Register</button>
+                    <span *ngIf="errPassword" class="error">{{ errMessage }}</span>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -19,6 +19,7 @@ router.post("/register", async (req, res) => {
     const { email, name, password } = req.body;
     User.findOne({ email: email }).then(user => {
       if (user) {
+        req.flash('Success_msg');
         res.json({
           msg: "User Email Is Exists"
         });
@@ -29,7 +30,6 @@ router.post("/register", async (req, res) => {
           password: password
         });
         // Hash Password
-        console.log(newUser);
         bcript.genSalt(10, (err, salt) => {
           bcript.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;

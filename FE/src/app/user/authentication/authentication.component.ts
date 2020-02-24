@@ -123,9 +123,10 @@ export class AuthenticationComponent implements OnInit, DoCheck {
       name: this.formRegister.value.name,
       password: this.formRegister.value.password
     };
-    console.log(body);
     this.callApi.register(body).subscribe(res => {
-      console.log(res);
+      // tslint:disable-next-line:no-string-literal
+      alert(`Register Success, Welcome ${res['name']}, Please Login Again`);
+      this.isRegister = false;
     }, err => {
       console.log(err);
     });

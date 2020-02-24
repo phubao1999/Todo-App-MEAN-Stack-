@@ -15,34 +15,38 @@ router.get("/register", (req, res) => {
 
 // Register Handle
 router.post("/register", async (req, res) => {
-  const { email, name, password, password2 } = req.body;
-  console.log(email, name, password, password2);
-  User.findOne({ email: email }).then(user => {
-    if (user) {
-      res.json({
-        msg: "User Email Is Exists"
-      });
-    } else {
-      const newUser = new User({
-        name: name,
-        email: email,
-        password: password
-      });
-      // Hash Password
-      bcript.genSalt(10, (err, salt) =>
-        bcript.hash(newUser.password, salt, (err, hash) => {
-          // Set password to hash
-          newUser.password = hash;
-          // Save User
-          newUser.save()
-            .then(res.json({
-              newUser
-            }))
-            .catch(err => console.log(err));
-        })
-      );
-    }
-  });
+  try {
+    const { email, name, password } = req.body;
+    User.findOne({ email: email }).then(user => {
+      if (user) {
+        res.json({
+          msg: "User Email Is Exists"
+        });
+      } else {
+        const newUser = new User({
+          name: name,
+          email: email,
+          password: password
+        });
+        // Hash Password
+        console.log(newUser);
+        bcript.genSalt(10, (err, salt) => {
+          bcript.hash(newUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            newUser.password = hash;
+            newUser
+              .save()
+              .then(user => {
+                res.json(user);
+              })
+              .catch(user => console.log(err));
+          });
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

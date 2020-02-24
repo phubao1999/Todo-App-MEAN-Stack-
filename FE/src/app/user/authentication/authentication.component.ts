@@ -121,11 +121,11 @@ export class AuthenticationComponent implements OnInit, DoCheck {
     const body = {
       email: this.formRegister.value.email,
       name: this.formRegister.value.name,
-      passoword: this.formRegister.value.password
+      password: this.formRegister.value.password
     };
+    console.log(body);
     this.callApi.register(body).subscribe(res => {
       console.log(res);
-      alert(res['msg']);
     }, err => {
       console.log(err);
     });

@@ -5,6 +5,7 @@ require('dotenv/config');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+const routerIndex = require('./routes')(app);
 
 // Connect MongoDb
 mongo.connect(process.env.DB_CONNECTION, {
@@ -29,7 +30,6 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Set Routes API
-const routerIndex = require('./routes')(app);
 routerIndex.registerRoutes();
 
 app.listen(port, () => {

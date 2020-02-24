@@ -3,16 +3,6 @@ const router = express.Router();
 const User = require("../models/User");
 const bcript = require("bcryptjs");
 
-// Login Page
-router.get("/login", (req, res) => {
-  res.send("Login");
-});
-
-// Register Page
-router.get("/register", (req, res) => {
-  res.send("Register");
-});
-
 // Register Handle
 router.post("/register", async (req, res) => {
   try {

@@ -1,5 +1,6 @@
 const list = require('./list');
 const authentication = require('./users');
+const login = require('./login');
 
 class RouterIndex {
     constructor(app) {
@@ -9,6 +10,7 @@ class RouterIndex {
     registerRoutes() {
         this.app.use('/list', list);
         this.app.use('/users', authentication);
+        this.app.use('/login', login);
     }
 }
 

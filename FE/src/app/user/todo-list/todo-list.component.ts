@@ -20,6 +20,7 @@ export class TodoListComponent implements OnInit {
     title: {required: 'You Must Enter This Field'},
     description: {required: 'You Must Enter This Field'}
   };
+  name;
   constructor(
     private callApi: CallApiService,
     private formBuilder: FormBuilder,
@@ -30,6 +31,13 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.getData();
     this.createForm();
+    this.name = localStorage.getItem('user-name');
+  }
+
+  logout() {
+    localStorage.removeItem('auth-token');
+    localStorage.removeItem('user-name');
+    location.reload();
   }
 
   createForm() {

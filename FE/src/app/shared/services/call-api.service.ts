@@ -36,4 +36,8 @@ export class CallApiService {
   register(body) {
     return this.http.post(`${this.apiLink}/users/register`, body);
   }
+
+  login(body) {
+    return this.http.post(`${this.apiLink}/login`, body);
+  }
 }

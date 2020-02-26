@@ -1,3 +1,4 @@
+import { AuthGuard } from './../shared/guard/user.guard';
 import { MainLayoutComponent } from './../shared/layout/main-layout/main-layout.component';
 import { HomeComponent } from './home/home.component';
 import { DetailItemComponent } from './todo-list/detail-item/detail-item.component';
@@ -16,6 +17,7 @@ export const routes: Routes = [
     },
     {
         path: 'todo-list', component: MainLayoutComponent,
+        canActivate: [AuthGuard],
         children: [
             {
                 path: '', component: TodoListComponent

@@ -133,7 +133,15 @@ export class AuthenticationComponent implements OnInit, DoCheck {
       email: this.formLogin.value.email,
       password: this.formLogin.value.password
     };
-    console.log(body);
+    this.callApi.login(body).subscribe(res => {
+      this.router.navigate(['todo-list']);
+      // tslint:disable-next-line:no-string-literal
+      localStorage.setItem('auth-token', res['token']);
+      // tslint:disable-next-line:no-string-literal
+      localStorage.setItem('user-name', res['user']['name']);
+    }, err => {
+      console.log(err);
+    });
   }
 
   createUser() {
